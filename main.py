@@ -19,7 +19,7 @@ def merge_images(
     logo = Image.open(BytesIO(logo_response.content)).convert("RGBA")
 
     # Resize logo
-    logo = logo.resize((300, 100))  # Adjust size as needed
+    logo = logo.resize((250, 200))  # Adjust size as needed
 
     # Enhance brightness (dimming)
     enhancer = ImageEnhance.Brightness(house)
@@ -28,7 +28,7 @@ def merge_images(
     # Bottom-right position
     house_width, house_height = house.size
     logo_width, logo_height = logo.size
-    position = (house_width - logo_width - 10, house_height - logo_height - 10)
+    position = (house_width - logo_width - 10, house_height - logo_height + 30)
 
     # Paste logo with transparency
     house.paste(logo, position, logo)
